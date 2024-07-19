@@ -16,7 +16,6 @@ pip install quri-parts-qsci
 ### Installation from local source tree
 
 If you check out the QURI Parts QSCI repository and want to install from that local source tree, you can use `requirements-local.txt`.
-In `requirements-local.txt`, optional components are commented out, so please uncomment them as necessary.
 
 ```
 pip install -r requirements-local.txt
