@@ -1,0 +1,31 @@
+name: Typecheck
+
+on:
+  pull_request:
+    paths:
+      - pyproject.toml
+      - poetry.lock
+      - quri_parts_qsci
+      - mypy.ini
+      - .github/workflows/typecheck.yml
+  push:
+    branches: [main]
+
+jobs:
+  mypy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - uses: ./.github/actions/setup
+
+    - uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - run: |
+        poetry install --only typecheck
+
+    - run: poetry run mypy quri_parts_qsci
+    - run: poetry run mypy tests
