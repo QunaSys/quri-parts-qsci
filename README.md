@@ -1,7 +1,7 @@
 # QURI Parts QSCI
 
 
-QURI Parts QSCI an open source library for executing the [Quantum Selected Configuration Interaction (QSCI) algorithm.](https://arxiv.org/abs/2311.01105)
+QURI Parts QSCI is an open source library for executing the [Quantum Selected Configuration Interaction (QSCI) algorithm.](https://arxiv.org/abs/2311.01105)
 
 
 
