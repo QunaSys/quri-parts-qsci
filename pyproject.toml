@@ -4,6 +4,9 @@ version = "0.1.0"
 description = ""
 authors = ["QunaSys"]
 readme = "README.md"
+packages = [
+    { include = "quri_parts_qsci" }
+]
 
 [tool.poetry.dependencies]
 python = "^3.9.8,<3.12"
