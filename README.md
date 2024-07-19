@@ -7,7 +7,7 @@ QURI Parts QSCI an open source library for executing the [Quantum Selected Confi
 
 ## Installation
 
-QURI Parts requires Python 3.9.8 or later. Use `pip` to install QURI Parts QSCI.
+QURI Parts QSCI requires Python 3.9.8 or later. Use `pip` to install QURI Parts QSCI.
 
 ```
 pip install quri-parts-qsci
