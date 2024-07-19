@@ -2,7 +2,7 @@
 name = "quri-parts-qsci"
 version = "0.1.0"
 description = ""
-authors = ["Daniel <chung@qunasys.com>"]
+authors = ["QunaSys"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
