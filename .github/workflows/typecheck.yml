@@ -27,4 +27,5 @@ jobs:
     - run: |
         poetry install --only typecheck
 
-    - run: poetry run mypy .
+    - run: poetry run mypy quri_parts_qsci
+    - run: poetry run mypy tests
