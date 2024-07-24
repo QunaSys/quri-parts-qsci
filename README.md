@@ -1,7 +1,7 @@
 # QURI Parts QSCI
 
 
-QURI Parts QSCI is an open source library for executing the [Quantum Selected Configuration Interaction (QSCI) algorithm.](https://arxiv.org/abs/2311.01105)
+QURI Parts QSCI is a library for executing the [Quantum Selected Configuration Interaction (QSCI) algorithm.](https://arxiv.org/abs/2311.01105)
 
 
 
@@ -28,4 +28,4 @@ QURI Parts developed and maintained by [QunaSys Inc.](https://qunasys.com/en). A
 
 ## License
 
-QURI Parts is licensed under [QunaSys Source Available License Version 1.0 (QSAL-1.0)](https://github.com/QunaSys/quri-parts-qsci/blob/main/LICENSE).
+QURI Parts QSCI is licensed under [QunaSys Source Available License Version 1.0 (QSAL-1.0)](https://github.com/QunaSys/quri-parts-qsci/blob/main/LICENSE).
