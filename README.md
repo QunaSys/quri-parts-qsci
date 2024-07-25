@@ -1,7 +1,7 @@
 # QURI Parts QSCI
 
 
-QURI Parts QSCI is a library for executing the [Quantum Selected Configuration Interaction (QSCI) algorithm.](https://arxiv.org/abs/2311.01105)
+QURI Parts QSCI is a library for executing the [Quantum Selected Configuration Interaction (QSCI) algorithm.](https://arxiv.org/abs/2302.11320)
 
 
 
@@ -10,7 +10,7 @@ QURI Parts QSCI is a library for executing the [Quantum Selected Configuration I
 QURI Parts QSCI requires Python 3.9.8 or later. Use `pip` to install QURI Parts QSCI.
 
 ```
-pip install quri-parts-qsci
+pip install git+https://github.com/QunaSys/quri-parts-qsci.git
 ```
 
 ### Installation from local source tree
