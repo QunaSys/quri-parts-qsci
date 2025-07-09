@@ -166,8 +166,9 @@ def qsci(
         num_states_pick_out: Number of states to pick out from ``meas_counts``
 
     References:
-        K. Kanno et al., "Subspace diagonalization by quantum-selected configuration
-        interaction", arXiv:TBA.
+        K. Kanno et al., "Quantum-Selected Configuration Interaction: classical
+        diagonalization of Hamiltonians in subspaces selected by quantum computers",
+        `arXiv:2302.11320 [quant-ph] <https://arxiv.org/abs/2302.11320>`_.
     """
     if not is_hermitian(hamiltonian):
         raise ValueError("Hamiltonian must be hermitian.")
