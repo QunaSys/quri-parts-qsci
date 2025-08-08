@@ -6,6 +6,7 @@ on:
       - pyproject.toml
       - poetry.lock
       - quri_parts_qsci/**
+      - tests/**
       - .flake8
       - .github/workflows/lint.yml
   push:

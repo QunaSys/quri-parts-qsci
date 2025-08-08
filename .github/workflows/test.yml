@@ -6,7 +6,8 @@ on:
       - pyproject.toml
       - poetry.lock
       - quri_parts_qsci/**
-      - .github/workflows/pytest.yml
+      - tests/**
+      - .github/workflows/test.yml
   push:
     branches: [main]
 
