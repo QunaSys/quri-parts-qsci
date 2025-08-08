@@ -9,12 +9,12 @@ packages = [
 ]
 
 [tool.poetry.dependencies]
-python = "^3.9.8, >=3.10"
-quri-parts-core = "*"
-quri-parts-circuit = "*"
-quri-parts-algo = "*"
-quri-parts-chem = "*"
-quri-parts-qulacs = "*"
+python = ">=3.10, <4.0.0"
+quri-parts-core = ">=0.20"
+quri-parts-circuit = ">=0.20"
+quri-parts-algo = ">=0.20"
+quri-parts-chem = ">=0.20"
+quri-parts-qulacs = ">=0.20"
 
 [tool.poetry.group.lint.dependencies]
 black = "^23.10.0"
@@ -44,3 +44,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.isort]
 profile = "black"
+
+[tool.mypy]
+mypy_path = "."
+explicit_package_bases = true
