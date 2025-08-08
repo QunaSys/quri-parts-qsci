@@ -9,7 +9,7 @@ packages = [
 ]
 
 [tool.poetry.dependencies]
-python = "^3.9.8, >=3.10"
+python = ">=3.10, <4.0.0"
 quri-parts-core = ">=0.20"
 quri-parts-circuit = ">=0.20"
 quri-parts-algo = ">=0.20"
