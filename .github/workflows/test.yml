@@ -5,7 +5,7 @@ on:
     paths:
       - pyproject.toml
       - poetry.lock
-      - quri_parts_qsci
+      - quri_parts_qsci/**
       - .github/workflows/pytest.yml
   push:
     branches: [main]
@@ -15,15 +15,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-    - uses: ./.github/actions/setup
+      # Install Poetry
+      - name: Install Poetry
+        run: pipx install poetry
 
-    - uses: actions/setup-python@v4
-      with:
-        python-version: '3.9'
+      # Set up Python (match project minimum)
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+          cache: "poetry"
 
-    - run: |
-        poetry install
+      - name: Install dependencies
+        run: poetry install
 
-    - run: poetry run pytest
+      - name: Run pytest
+        run: poetry run pytest

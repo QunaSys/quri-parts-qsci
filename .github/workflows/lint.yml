@@ -5,7 +5,7 @@ on:
     paths:
       - pyproject.toml
       - poetry.lock
-      - quri_parts_qsci
+      - quri_parts_qsci/**
       - .flake8
       - .github/workflows/lint.yml
   push:
@@ -16,25 +16,34 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-    - uses: ./.github/actions/setup
+      - name: Install Poetry
+        run: pipx install poetry
 
-    - uses: actions/setup-python@v4
-      with:
-        python-version: '3.9'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+          cache: "poetry"
+          cache-dependency-path: |
+            poetry.lock
+            pyproject.toml
 
-    - run: |
-        poetry install --only lint
+      - name: Install lint dependencies
+        run: poetry install --only lint
 
-    - run: poetry run isort quri_parts_qsci --check --diff
-      if: success() || failure()
+      - name: Run isort
+        run: poetry run isort quri_parts_qsci --check --diff
+        if: success() || failure()
 
-    - run: poetry run black quri_parts_qsci --check
-      if: success() || failure()
+      - name: Run black
+        run: poetry run black quri_parts_qsci --check --diff
+        if: success() || failure()
 
-    - run: poetry run flake8 quri_parts_qsci --show-source
-      if: success() || failure()
+      - name: Run flake8
+        run: poetry run flake8 quri_parts_qsci --show-source
+        if: success() || failure()
 
-    - run: poetry run docformatter -c -r quri_parts_qsci
-      if: success() || failure()
+      - name: Run docformatter
+        run: poetry run docformatter -c -r quri_parts_qsci
+        if: success() || failure()
