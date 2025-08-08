@@ -59,7 +59,9 @@ def penalty_term_comp_state(
     dim = len(penalty_state[0])
     penalty_state_coefs, _ = penalty_state
 
-    penalty_matrix: npt.NDArray[np.complex_] = np.zeros((dim, dim), dtype=np.complex_)
+    penalty_matrix: npt.NDArray[np.complex128] = np.zeros(
+        (dim, dim), dtype=np.complex128
+    )
 
     for j in range(dim):
         for k in range(dim):
