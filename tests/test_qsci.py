@@ -285,6 +285,36 @@ class TestQSCI:
             ComputationalBasisState(qubit_count, bits=0),
         ]
 
+    def test_qsci_fewer_states_than_num_eigs_calc(self) -> None:
+        """When sampling produces fewer unique basis states than the number of
+        requested eigenpairs (len(states) < num_eigs_calc), qsci should return
+        only the available eigenpairs with a UserWarning."""
+        qubit_count = 6
+        hamiltonian = _hamiltonian()
+        # 3 approx_states → num_eigs_calc = k = 3
+        approx_states = [
+            ComputationalBasisState(qubit_count, bits=0b000001),
+            ComputationalBasisState(qubit_count, bits=0b000100),
+            ComputationalBasisState(qubit_count, bits=0b000010),
+        ]
+        sampler = mock.Mock()
+        # Merged unique states = 2 only (< k=3), triggering n < k scenario
+        sampler.return_value = [
+            {0b000001: 60, 0b000100: 40},
+            {0b000001: 40, 0b000100: 60},
+            {0b000001: 50, 0b000100: 50},
+        ]
+        total_shots = 300
+
+        with pytest.warns(UserWarning, match="Requested 3 eigenpairs but only 2"):
+            eigvals, lin_comb_states = qsci(
+                hamiltonian, approx_states, sampler, total_shots
+            )
+
+        # Should return min(n, k) = 2 eigenpairs
+        assert len(eigvals) == len(lin_comb_states) == 2
+        check_subspace_eigenvectors(hamiltonian, eigvals, lin_comb_states)
+
 
 class TestSequentialQSCI:
     def setup(

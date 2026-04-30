@@ -5,6 +5,7 @@
 # Please refer to the LICENSE file distributed with this source code for the
 # full terms.
 
+import warnings
 from collections import defaultdict
 from typing import Optional, Sequence, Union
 
@@ -198,7 +199,15 @@ def qsci(
     eigvals, eigvecs = _diagonalize_truncated_hamiltonian(
         truncated_hamiltonian, len(states), num_eigs_calc
     )
-    return (eigvals, [(eigvecs[i], states) for i in range(num_eigs_calc)])
+    nret = min(num_eigs_calc, len(eigvecs))
+    if nret < num_eigs_calc:
+        warnings.warn(
+            f"Requested {num_eigs_calc} eigenpairs but only {nret} were obtained "
+            f"(subspace size: {len(states)}). Returning {nret} eigenpairs.",
+            UserWarning,
+            stacklevel=2,
+        )
+    return (eigvals[:nret], [(eigvecs[i], states) for i in range(nret)])
 
 
 def sequential_qsci(
