@@ -9,7 +9,7 @@ packages = [
 ]
 
 [tool.poetry.dependencies]
-python = "^3.9.8"
+python = ">=3.10,<4.0.0"
 quri-parts-core = "*"
 quri-parts-circuit = "*"
 quri-parts-algo = "*"
@@ -39,7 +39,7 @@ notebook = ">=6.4.12,<8.0.0"
 myst-parser = ">=0.18.1,<2.1.0"
 
 [build-system]
-requires = ["poetry-core"]
+requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.isort]
